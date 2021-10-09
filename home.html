@@ -182,7 +182,7 @@
         const url = 'http://localhost:7777/registloginservice/api/auth';
 
         //Get
-        axios.get(url + '/getProduct')
+        axios.get(url + '/getProduct', { headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')} })
             .then((res) => {
                 console.log(res.data);
                 const productList = res.data.productResponses;
@@ -199,7 +199,7 @@
             }
             console.log(request);
 
-            axios.post(url + '/deleteProductById', request)
+            axios.post(url + '/deleteProductById', request, { headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')} })
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.messageDesc);
@@ -221,7 +221,7 @@
             }
             console.log(request);
 
-            axios.post(url + '/saveProduct', request)
+            axios.post(url + '/saveProduct', request, { headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')} })
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.messageDesc);
@@ -244,7 +244,7 @@
             }
             console.log(request);
 
-            axios.post(url + '/saveProduct', request)
+            axios.post(url + '/saveProduct', request, { headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')} })
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.messageDesc);
@@ -260,7 +260,7 @@
 
         $('#btnLogout').click(function() {
 
-            axios.post(url + '/logout')
+            axios.post(url + '/logout' , { headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')} })
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data.statusMessage);
