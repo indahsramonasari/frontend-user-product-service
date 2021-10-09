@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>X Product Stock</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/web.png" rel="icon">
+  <link href="img/web.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Axios -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js"></script>
+</head>
+
+
+<body>
+  <header id="header">
+
+    <div class="container">
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="#getstock" class="scrollto"><span>X PRODUCT STOCK</span></a></h1>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#getstock">All Product Stocks</a></li>
+          <li><a href="#managestock">Manage Stock</a></li>
+          <li><a href="#btnLogout" id="btnLogout">Logout</a></li>
+        </ul>
+      </nav>
+      
+    </div>
+  </header>
+
+    <section id="getstock" class="section-bg">
+    <div class="container">
+    <header class="section-header">
+    <br><br><br><br><br>
+    <h3>All Product Stocks</h3>
+    </header>
+    <section id="features">
+      <div class="container">
+        <div class="row feature-item">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src="" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <table border="2 px">
+            <thead>
+            <tr>
+                <th> Product Code </th>
+                <th> Product Name </th>
+                <th> Product Price </th>
+                <th> Action </th>
+            </tr>
+            </thead>
+            <tbody id="outputTable"></tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+  </section>
+
+  <main id="main">
+
+    <section id="managestock" class="section-bg">
+      <div class="container">
+        <header class="section-header">
+          <br><br>
+          <h3>Add or update stock!</h3>
+        </header>
+    <section id="features">
+      <div class="container">
+        <div class="row feature-item">
+        <div class="col-lg-6 wow fadeInUp">
+        <img src="img/features-1.svg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+
+          <div  id="showUpdate" style="display: none;">
+          <form>
+          <table>
+            <tr>
+                <td>Product Code</td>
+                <td></td>
+                <td>
+                    <input type="text" id="idProduct" placeholder="existing product code">
+                </td>
+            </tr>
+            <tr>
+                <td>Product Name</td>
+                <td></td>
+                <td>
+                    <input type="text" id="nameProduct" placeholder="product name">
+                </td>
+            </tr>
+            <tr>
+                <td>Product Price</td>
+                <td></td>
+                <td>
+                    <input type="text" id="priceProduct" placeholder="product price">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="button" id="btnUpdate" style="background-color: bisque;">SUBMIT</button></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+
+        <div id="showAdd" style="display: block;">
+        <form>
+        <table>
+            <tr>
+                <td>Product Name</td>
+                <td></td>
+                <td>
+                    <input type="text" id="name" placeholder="product name">
+                </td>
+            </tr>
+            <tr>
+                <td>Product Price</td>
+                <td></td>
+                <td>
+                    <input type="text" id="price" placeholder="product price">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><button type="button" id="btnSave" style="background-color: bisque;">SUBMIT</button></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/mobile-nav/mobile-nav.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+  <!-- call REST API -->
+    <script>
+
+        const url = 'http://localhost:7777/registloginservice/api/auth';
+
+        //Get
+        axios.get(url + '/getProduct')
+            .then((res) => {
+                console.log(res.data);
+                const productList = res.data.productResponses;
+
+                $('#outputTable').html(
+                    productList.map(item => `<tr><td>${item.productId}</td><td>${item.productName}</td><td>${item.productPrice}</td><td><a href="#managestock" type="button" onclick="showUpdate()" style="background-color: darkblue;">Update</a><button type="button" onclick="btnDelete('${item.productId}')" style="background-color: red;">Delete</button></td></tr>`)
+                );
+        });
+
+        //Delete
+        function btnDelete(id) {
+            const request = {
+                productId : id
+            }
+            console.log(request);
+
+            axios.post(url + '/deleteProductById', request)
+                .then((res) => {
+                    console.log(res.data);
+                    alert(res.data.messageDesc);
+                    location.reload(true);
+                })
+                .catch(function (error) {
+                  if (error.response) {
+                    console.log(error.response.data);
+                    alert(error.response.data.errorMessage);
+                  }
+                })
+        };
+
+        //Save
+        $('#btnSave').click(function() {
+            const request = {
+                productName : $('input#name').val(),
+                productPrice : $('input#price').val()
+            }
+            console.log(request);
+
+            axios.post(url + '/saveProduct', request)
+                .then((res) => {
+                    console.log(res.data);
+                    alert(res.data.messageDesc);
+                    location.reload(true);
+                })
+                .catch(function (error) {
+                  if (error.response) {
+                    console.log(error.response.data);
+                    alert(error.response.data.errorMessage);
+                  }
+                })
+        });
+
+        //Update
+        $('#btnUpdate').click(function() {
+            const request = {
+                productId : $('input#idProduct').val(),
+                productName : $('input#nameProduct').val(),
+                productPrice : $('input#priceProduct').val()
+            }
+            console.log(request);
+
+            axios.post(url + '/saveProduct', request)
+                .then((res) => {
+                    console.log(res.data);
+                    alert(res.data.messageDesc);
+                    location.reload(true);
+                })
+                .catch(function (error) {
+                  if (error.response) {
+                    console.log(error.response.data);
+                    alert(error.response.data.errorMessage);
+                  }
+                })
+        });
+
+        $('#btnLogout').click(function() {
+
+            axios.post(url + '/logout')
+                .then((res) => {
+                    console.log(res.data);
+                    alert(res.data.statusMessage);
+                    window.location = "index.html"
+                })
+                .catch(function (error) {
+                  if (error.response) {
+                    console.log(error.response.data);
+                    alert(error.response.data.message);
+                  }
+                })
+        });
+
+        function showUpdate() {
+            var x = document.getElementById('showUpdate');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+            } else {
+                x.style.display = 'none';
+            }
+            var x = document.getElementById('showAdd');
+            if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
